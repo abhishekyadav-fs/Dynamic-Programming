@@ -1,2 +1,2 @@
-# dynamicProgramming
+# DynamicProgramming
 Dynamic Programming : Fibonacci Number
