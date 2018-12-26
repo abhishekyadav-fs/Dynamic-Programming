@@ -10,20 +10,44 @@ namespace DynamicProgramming
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Finding nth Fibonacci no :");
+            DateTime startTime, endTime;
             // Calling recursive method
-            int result = FibonaciSeries(9);
-            Console.WriteLine(result);
+            Console.Write("Recursive : Enter the value of n -");
+            int n = Convert.ToInt32(Console.ReadLine());
+            startTime = DateTime.Now;
+            //int result = FibonaciSeries(n);
+            //Console.WriteLine("Result - "+result);
+            endTime = DateTime.Now;
+            Console.WriteLine("Time Taken - "+(endTime-startTime));
+
             // Calling Iterative method
-            int itResult = FibonaciSeriesIterative(9);
-            Console.WriteLine(itResult);
+            Console.Write("Iterative : Enter the value of n -");
+            n = Convert.ToInt32(Console.ReadLine());
+            startTime = DateTime.Now;
+            //int itResult = FibonaciSeriesIterative(n);
+            //Console.WriteLine("Result - " + itResult);
+            endTime = DateTime.Now;
+            Console.WriteLine("Time Taken - " + (endTime - startTime));
+
             // Calling FibbonaciMemoize
             // Taking memo with size 1 greater than n to handle zero
-            int[] memo = new int[9 + 1];
-            
-            int memRes = FibonacciMemoize(9, memo);
-            Console.WriteLine(memRes);
+            Console.Write("Memoization : Enter the value of n -");
+            n = Convert.ToInt32(Console.ReadLine());
+            startTime = DateTime.Now;
+            int[] memo = new int[n + 1];            
+            int memRes = FibonacciMemoize(n, memo);
+            Console.WriteLine("Result - " + memRes);
+            endTime = DateTime.Now;
+            Console.WriteLine("Time Taken - " + (endTime - startTime));
 
-            Console.WriteLine(FibonacciMemoizationIterative(9));
+            Console.Write("Bottomup Approach : Enter the value of n -");
+            n = Convert.ToInt32(Console.ReadLine());
+            startTime = DateTime.Now;           
+            int bottomUpRes = FibonacciMemoizationIterative(n);
+            Console.WriteLine("Result - " + bottomUpRes);
+            endTime = DateTime.Now;
+            Console.WriteLine("Time Taken - " + (endTime - startTime));
             Console.ReadKey();
         }
         #region Recursive Fibonacci
@@ -91,6 +115,7 @@ namespace DynamicProgramming
         }
         #endregion
 
+        #region Buttom Up Approch
         /// <summary>
         /// Iterative memoize implementation 
         /// </summary>
@@ -107,5 +132,6 @@ namespace DynamicProgramming
             }
             return result[n];
         }
+        #endregion  
     }
 }
